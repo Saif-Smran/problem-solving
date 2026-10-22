@@ -51,3 +51,102 @@ var timeConversion = function (s: string): string {
 // console.log(timeConversion("12:00:00PM")); // "12:00:00"
 // console.log(timeConversion("12:30:45PM")); // "12:30:45"
 
+/**
+ * @param {number} n
+ * @param {string} s
+ * @return {string}
+ */
+var repeatStr = function(n: number, s: string): string {
+    return s.repeat(n);
+};
+
+// console.log(repeatStr(5, "Hello")); // "HelloHelloHelloHelloHello"
+
+/**
+ * @param {string} str
+ * @return {string}
+ */
+var solution = function(str: string): string {
+    return str.split('').reverse().join('');
+};
+
+// console.log(solution("world")); // "dlrow"
+
+/**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var positiveSum = function(arr: number[]): number {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            sum += arr[i];
+        }
+    }
+    return sum;
+};
+
+// console.log(positiveSum([1, -4, 7, 12])); // 20
+
+/**
+ * @param {number} num
+ * @return {number}
+ */
+var summation = function(num: number): number {
+    let sum = 0;
+    for (let i = 1; i <= num; i++) {
+        sum += i;
+    }
+    return sum;
+};
+
+// console.log(summation(8)); // 36
+
+/**
+ * @param {boolean} b
+ * @return {string}
+ */
+var booleanToString = function(b: boolean): string {
+    return b.toString();
+};
+
+// console.log(booleanToString(true)); // "true"
+// console.log(booleanToString(false)); // "false"
+
+/**
+ * @param {number} n
+ * @return {string[]}
+ */
+var fizzBuzz = function(n: number): string[] {
+    const result: string[] = [];
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            result.push("FizzBuzz");
+        } else if (i % 3 === 0) {
+            result.push("Fizz");
+        } else if (i % 5 === 0) {
+            result.push("Buzz");
+        } else {
+            result.push(i.toString());
+        }
+    }
+    return result;
+};
+
+// console.log(fizzBuzz(15)); // ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"]
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var runningSum = function(nums: number[]): number[] {
+    const result: number[] = [];
+    let sum = 0;
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i];
+        result.push(sum);
+    }
+    return result;
+};
+
+console.log(runningSum([1, 2, 3, 4])); // [1, 3, 6, 10]
