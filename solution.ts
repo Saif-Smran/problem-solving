@@ -149,4 +149,81 @@ var runningSum = function(nums: number[]): number[] {
     return result;
 };
 
-console.log(runningSum([1, 2, 3, 4])); // [1, 3, 6, 10]
+// console.log(runningSum([1, 2, 3, 4])); // [1, 3, 6, 10]
+
+/**
+ * @param {number[][]} accounts
+ * @return {number}
+ */
+var maximumWealth = function(accounts: number[][]): number {
+    let maxWealth = 0;
+    for (let i = 0; i < accounts.length; i++) {
+        let currentWealth = 0;
+        for (let j = 0; j < accounts[i].length; j++) {
+            currentWealth += accounts[i][j];
+        }
+        if (currentWealth > maxWealth) {
+            maxWealth = currentWealth;
+        }
+    }
+    return maxWealth;
+};
+
+// console.log(maximumWealth( [[1, 5], [7, 3], [3, 5]]))
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function(nums: number[]) : number {
+    for (let i = 0; i < nums.length - 1; i++) {
+        if (nums[i] === nums[i + 1]) {
+            nums.splice(i, 1);
+            i--;
+        }
+    }
+    return nums.length;
+};
+
+// console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])); // 5
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function(nums: number[]) : boolean {
+    const seen = new Set<number>();
+    for (const num of nums) {
+        if (seen.has(num)) {
+            return true;
+        }
+        seen.add(num);
+    }
+    return false;
+};
+
+
+// console.log(containsDuplicate([1, 2, 3, 4])); // false
+// console.log(containsDuplicate([1, 2, 3, 1])); // true
+
+/**
+ * @param {number[]} nums
+ * @return {void}
+ */
+var moveZeroes = function(nums: number[]): void {
+    let left = 0;
+    let right = 0;
+    while (right < nums.length) {
+        if (nums[right] !== 0) {
+            [nums[left], nums[right]] = [nums[right], nums[left]];
+            left++;
+        }
+        right++;
+    }
+};
+
+// const arr = [0, 1, 0, 3, 12];
+// moveZeroes(arr);
+// console.log(arr); // [1, 3, 12, 0, 0]
+
+
